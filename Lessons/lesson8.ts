@@ -59,4 +59,4 @@ printAge(18)
 // import everything
 import * as helpers from '../helpers/print-helpers.js'
 
-printAge(25)
+helpers.printAge(25)

@@ -44,3 +44,30 @@ date = 18
 date = "8th Of november"
 
 
+/* 
+TypeScript data types define the kind of values a variable can hold, ensuring type safety at compile time.
+Main data types:
+
+string – for text (let name: string = "John";)
+
+number – for numeric values (let age: number = 25;)
+
+boolean – for true/false (let isActive: boolean = true;)
+
+any – for any type (not type-safe)
+
+void – for functions that return nothing
+
+null / undefined – represent absence of a value
+
+array – list of items (let nums: number[] = [1, 2, 3];)
+
+tuple – fixed-length array with specific types (let user: [string, number] = ["John", 25];)
+
+enum – named constant values (enum Color { Red, Green, Blue })
+
+object – structured data (let person: { name: string; age: number } = { name: "Tom", age: 30 };)
+
+union – multiple possible types (let id: string | number;)
+
+👉 In short: TypeScript supports basic, object, and advanced types to make code safer and more predictable. */

@@ -1,51 +1,97 @@
-// Hello World
-
+// # The console.log() function is used to print output to the console
 console.log("Hello World!")
 
-// Variables
-var firstName = "Pradeep"
-let lastName = "Hopkins"
-console.log(firstName)
-let age, sex
-age = "25"
-console.log(age)
-sex = "Male"
-age = "26"
-console.log(age)
-age = 27
-console.log(age)
+// # Variables in TypeScript
+// Three ways to declare variables:
+// - let: Block-scoped, can be reassigned
+// - const: Block-scoped, cannot be reassigned
+// - var: Function-scoped (avoid using - legacy)
 
-// Constands
-const occupation = "Engineer"
-console.log(occupation)
-// const declarations must be initialized.
-// const place
-// place = "chennai"
+// Example: Variable Declaration and Assignment
+let firstName: string = "Pradeep"
+let lastName: string = "Hopkins"
+console.log(`Full name: ${firstName} ${lastName}`)
 
-// DataTypes
-var man = "jack Sparrow" // string
-var ageOfBrother = 30 // number
-var isHeMarried = true // boolean
-var yearsInMarriage = null // null (no value)
-var numberOfBrothers = undefined // explicitly declare a variable as undefined or a union with another type (Useful for optional values that might not be initialized)
-var queues // for any type (not type-safe)
-queues = "API"
-queues = 10
-queues = true
-queues = null
-queues = [10, 20, 30]
-queues = { queueName : "API", numOfQueues: 18}
-var numbers = [10, 30 ,40 ,50] // array – list of items
-var dateOfbirth = [20, "May", 2000]// tuple - fixed-length array with specific types
-enum colours { Red, Green, Blue} // enum - named constant values (enum Color { Red, Green, Blue })
-let studentDetails = {name: "Pradeep", age: 20, isGraduate: true} // object -structured data
-let date: number | string // union – multiple possible types
-date = 18
-date = "8th Of november"
+// Example: Variable Reassignment
+let age: string | number = "25"
+console.log(`Initial age: ${age}`)
+age = 26  // TypeScript allows type changes when using union types
+console.log(`Updated age: ${age}`)
+
+// Example: Constants
+const occupation: string = "Engineer"
+console.log(`Occupation: ${occupation}`)
+// const variables must be initialized and cannot be reassigned
+// This would cause an error:
+// const place: string
+// place = "Chennai"
+
+// # TypeScript Data Types
+// TypeScript data types define the kind of values a variable can hold, ensuring type safety at compile time.
+// Comprehensive examples of different types
+
+// Basic Types
+const text: string = "Jack Sparrow"        // String type
+const count: number = 30                      // Number type
+const isActive: boolean = true              // Boolean type
+const empty: null = null                    // Null type
+const notSet: undefined = undefined         // Undefined type
+
+// Any Type (avoid when possible)
+let flexible: any                           // Can hold any type
+flexible = "API"
+flexible = 10
+flexible = true
+flexible = [10, 20, 30]
+flexible = { name: "API", count: 18 }
+
+// Arrays
+const numbers: number[] = [10, 30, 40, 50]  // Number array
+const birthInfo: [number, string, number] = [20, "May", 2000]  // Tuple
+
+// Enum - Named Constants
+enum Color { 
+    Red = "RED",
+    Green = "GREEN",
+    Blue = "BLUE"
+}
+const selectedColor: Color = Color.Blue
+
+// Object Type with Interface
+interface Student {
+    name: string
+    age: number
+    isGraduate: boolean
+}
+
+const studentDetails: Student = {
+    name: "Pradeep",
+    age: 20,
+    isGraduate: true
+}
+
+// Union Types
+let identifier: number | string   // Can be number or string
+identifier = 18
+identifier = "8th of November"
+
+// Function Type Examples
+function greet(name: string): string {
+    return `Hello, ${name}!`
+}
+
+// Void Function Example (returns nothing)
+function logMessage(message: string): void {
+    console.log(message)
+    // No return statement needed
+}
+
+// Null vs Undefined Example
+let userResponse: string | null = null      // Explicitly set to null
+let userInput: string | undefined           // Automatically undefined when not assigned
 
 
 /* 
-TypeScript data types define the kind of values a variable can hold, ensuring type safety at compile time.
 Main data types:
 
 string – for text (let name: string = "John";)

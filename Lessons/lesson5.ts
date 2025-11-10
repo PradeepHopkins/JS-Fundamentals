@@ -1,21 +1,32 @@
-// Logical Operators
-// logival "AND"
-console.log(true && true) // all values have to be TRUE for experssion to be TRUE
+// Conditional Statement
+/* 
+syntax:
 
-// logivcal "OR"
-console.log(true || false) // any value should be TRUE for the experssion to be TRUE
+if (Condition) {
+    // exceute some code here
+} else {
+    // execute some code here
+}
+ */
+
+// if hours between 6 to 12 print 'Good Moring'
+// if hours between 12 to 18 print 'Good Afternoon'
+// otherwise 'Good Evening'
+
+let hour = 18
+if (hour >= 6 && hour < 12) {
+    console.log("Good Moring")
+} else if (hour >= 12 && hour < 18) {
+    console.log("Good Afternoon")
+} else {
+    console.log("GOod Evening")
+}
 
 var ageIsMoreThanEighteen = true
-var isIndianCitizen = false
+var isIndianCitizen = true
 
-var eligiblityForDriverLicense = ageIsMoreThanEighteen && isIndianCitizen
-console.log('The Customer is eligble for Driving lincense: ' + eligiblityForDriverLicense)
-
-var eligiblityForDriverLicense = ageIsMoreThanEighteen || isIndianCitizen
-console.log('The Customer is eligble for Driving lincense: ' + eligiblityForDriverLicense)
-
-// logical "NOT"
-console.log(!true)
-const a: number = 6;
-const b: number = 10;
-console.log(a !== b);
+if(ageIsMoreThanEighteen && isIndianCitizen) {
+    console.log("The Customer is eligble for Driving lincense")
+} else {
+    console.log("The Customer is not eligble for Driving lincense")
+}

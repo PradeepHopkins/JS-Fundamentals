@@ -3,13 +3,15 @@
 // =====================================================
 // Loops allow you to execute code repeatedly over collections or conditions.
 // TypeScript supports multiple loop types, each suited for different use cases.
-// Topics: for, for...of, for...in, forEach, while, do...while, and best practices.
+// Topics: for, for...of, for...in, forEach, while, do...while, array methods, and best practices.
 
-// # 1. FOR LOOP - Traditional Counting Loop
+// ----------------------------
+// 1. FOR LOOP - Traditional Counting Loop
+// ----------------------------
 // Definition: Execute code a specific number of times using counter variable.
 // Syntax: for (initialization; condition; increment) { }
-// Features: Can use break and continue statements.
-// Best for: When you know the exact number of iterations.
+// Features: Can use break and continue statements; controlled iteration count.
+// Best for: When you know the exact number of iterations needed.
 
 console.log("\n--- 1. FOR LOOP ---")
 {
@@ -38,10 +40,12 @@ console.log("\n--- 1. FOR LOOP ---")
     }
 }
 
-// # 2. FOR...OF LOOP - Iterate Over Values
+// ----------------------------
+// 2. FOR...OF LOOP - Iterate Over Values
+// ----------------------------
 // Definition: Iterate over values of an iterable (array, string, etc.).
 // Syntax: for (const element of iterable) { }
-// Features: Can use break and continue; get values, not indexes.
+// Features: Can use break and continue; get values, not indexes; clean syntax.
 // Best for: Arrays, strings, and when you don't need indexes.
 
 console.log("\n--- 2. FOR...OF LOOP ---")
@@ -72,11 +76,43 @@ console.log("\n--- 2. FOR...OF LOOP ---")
     }
 }
 
-// # 3. FOREACH() METHOD
+// ----------------------------
+// 3. FOR...IN LOOP - Iterate Over Object Properties
+// ----------------------------
+// Definition: Iterate over enumerable properties (keys) of an object or array.
+// Syntax: for (const key in object) { }
+// Features: Returns property names or array indexes, not values.
+// Best for: Iterating over object properties; less common than for...of.
+
+console.log("\n--- 3. FOR...IN LOOP ---")
+{
+    // Object property iteration
+    const personObj: { name: string; age: number; city: string } = { 
+        name: "Alice", 
+        age: 25, 
+        city: "London" 
+    }
+
+    console.log("Person object (for...in):")
+    for (const key in personObj) {
+        console.log(`  ${key}: ${personObj[key as keyof typeof personObj]}`)
+    }
+
+    // For...in with array (gets indexes)
+    console.log("\nArray indexes (for...in):")
+    const colors: string[] = ["Red", "Green", "Blue"]
+    for (const index in colors) {
+        console.log(`  Index ${index}: ${colors[parseInt(index)]}`)
+    }
+}
+
+// ----------------------------
+// 4. FOREACH() METHOD - Functional Array Iteration
+// ----------------------------
 // Definition: Array method that applies a function to each element.
 // Syntax: array.forEach((element, index, array) => { })
-// Features: Cannot use break/continue; use for...of for more control.
-// Best for: Simple, functional operations on arrays.
+// Features: Cannot use break/continue; functional programming style; clean syntax.
+// Best for: Simple, functional operations on arrays without needing early exit.
 
 console.log("\n--- 4. FOREACH() METHOD ---")
 {
@@ -99,36 +135,9 @@ console.log("\n--- 4. FOREACH() METHOD ---")
     })
 }
 
-// # 3. FOR...IN LOOP
-// Definition: Iterate over enumerable properties (keys) of an object or array.
-// Syntax: for (const key in object) { }
-// Features: Returns property names or array indexes, not values.
-// You often need type assertions (key as keyof typeof object) for TypeScript.
-// Best for: Iterating over object properties.
-
-console.log("\n--- 3. FOR...IN LOOP ---")
-{
-    // Object property iteration
-    const personObj: { name: string; age: number; city: string } = { 
-        name: "Alice", 
-        age: 25, 
-        city: "London" 
-    }
-
-    console.log("Person object (for...in):")
-    for (const key in personObj) {
-        console.log(`  ${key}: ${personObj[key as keyof typeof personObj]}`)
-    }
-
-    // For...in with array (gets indexes)
-    console.log("\nArray indexes (for...in):")
-    const colors: string[] = ["Red", "Green", "Blue"]
-    for (const index in colors) {
-        console.log(`  Index ${index}: ${colors[index as any]}`)
-    }
-}
-
-// # 5. WHILE LOOP - Repeat While Condition is True
+// ----------------------------
+// 5. WHILE LOOP - Repeat While Condition is True
+// ----------------------------
 // Definition: Repeat code block while a condition remains true.
 // Syntax: while (condition) { }
 // Features: Can use break and continue; useful for unknown iteration count.
@@ -205,10 +214,47 @@ console.log("\n--- 6. DO...WHILE LOOP ---")
 }
 
 // ----------------------------
-// # PRACTICAL EXAMPLES - Real-World Loop Applications #
+// 7. ARRAY METHODS - map, filter, reduce (Functional Loops)
+// ----------------------------
+// Definition: Non-mutating functional methods for array transformation and iteration.
+// Methods: map (transform), filter (select), reduce (aggregate), find, some, every
+// Features: Return new arrays/values; chainable; declarative style; preferred for modern code.
+// Best for: Data transformation; filtering; aggregation; functional programming.
+
+console.log("\n--- 7. ARRAY METHODS - FUNCTIONAL ITERATION ---")
+{
+    const numbers: number[] = [1, 2, 3, 4, 5]
+    
+    // Map: Transform each element
+    const doubled = numbers.map(n => n * 2)
+    console.log("Doubled numbers:", doubled)
+    
+    // Filter: Select matching elements
+    const evens = numbers.filter(n => n % 2 === 0)
+    console.log("Even numbers:", evens)
+    
+    // Reduce: Aggregate to single value
+    const sum = numbers.reduce((acc, n) => acc + n, 0)
+    console.log("Sum:", sum)
+    
+    // Find: Get first match
+    const found = numbers.find(n => n > 3)
+    console.log("First number > 3:", found)
+    
+    // Some: Check if any match
+    const hasEven = numbers.some(n => n % 2 === 0)
+    console.log("Has even numbers:", hasEven)
+    
+    // Every: Check if all match
+    const allPositive = numbers.every(n => n > 0)
+    console.log("All positive:", allPositive)
+}
+
+// ----------------------------
+// 8. PRACTICAL EXAMPLES - Real-World Loop Applications
 // ----------------------------
 
-console.log("\n--- 7. PRACTICAL EXAMPLES ---")
+console.log("\n--- 8. PRACTICAL EXAMPLES ---")
 {
     // Example 1: Process array of students
     interface Student {
@@ -251,7 +297,7 @@ console.log("\n--- 7. PRACTICAL EXAMPLES ---")
 }
 
 // ----------------------------
-// # LOOP COMPARISON TABLE
+// 9. LOOP COMPARISON TABLE & BEST USE CASES
 // ----------------------------
 /*
 ┌──────────────┬────────────────────┬─────────────────┬──────────────────┐
@@ -263,28 +309,35 @@ console.log("\n--- 7. PRACTICAL EXAMPLES ---")
 │ forEach()    │ Simple operations  │ No              │ Functional style │
 │ while        │ Unknown duration   │ Yes             │ Condition-based  │
 │ do...while   │ At least 1 run     │ Yes             │ Menu loops       │
+│ map()        │ Transform arrays   │ No              │ Map to new array │
+│ filter()     │ Select elements    │ No              │ Get subset       │
+│ reduce()     │ Aggregate values   │ No              │ Sum/combine      │
 └──────────────┴────────────────────┴─────────────────┴──────────────────┘
 */
 
 /*
-BEST PRACTICES:
+BEST PRACTICES
 ✅ DO:
-- Use for...of for iterating over array values
+- Use for...of for iterating over array values (modern, clean)
 - Use for...in for iterating over object properties
 - Use forEach() for simple, functional operations
-- Add type annotations (let i: number = 0)
+- Use array methods (map, filter, reduce) for transformations
+- Add type annotations to loop variables (let i: number = 0)
 - Use descriptive variable names in loops
 - Use break/continue to control loop flow
 - Use const for loop variables when possible (for...of)
-- Choose the right loop for the task
+- Choose the right loop for the specific task
+- Extract complex loop logic into separate functions
 
 ❌ DON'T:
 - Use for...in for arrays (use for...of instead)
-- Modify array while iterating with forEach
-- Nest loops too deeply (hard to read)
+- Modify array while iterating with forEach/map/filter
+- Nest loops too deeply (hard to read; refactor into functions)
 - Use var keyword (use const/let)
-- Forget to increment counter in while loops
+- Forget to increment counter in while loops (causes infinite loops)
 - Create infinite loops unintentionally
-- Mix loop types when one is clearly better
+- Use traditional for loop when for...of is clearer
 - Forget type assertions in for...in loops
+- Chain too many array methods without clarity
+- Overuse array methods when simple loops are clearer
 */

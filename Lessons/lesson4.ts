@@ -1,7 +1,9 @@
-// # TypeScript Operators and Comparisons
+// =====================================================
+//  TypeScript Operators and Comparisons
+// =====================================================
 // Learn different types of operators and their uses
 
-// 1. Relational (Comparison) Operators
+// # 1. Relational (Comparison) Operators
 console.log("\nRelational Operators:")
 const num1: number = 10
 const num2: number = 5
@@ -18,7 +20,7 @@ console.log(`${num1} >= ${num1}:`, num1 >= num1)  // true
 // Less than or equal to (<=)
 console.log(`${num2} <= ${num2}:`, num2 <= num2)  // true
 
-// 2. Equality Operators
+// # 2. Equality Operators
 console.log("\nEquality Operators:")
 
 // Type-safe comparisons
@@ -38,7 +40,7 @@ const num3: number = 100
 const num4: number = 100
 console.log("Number comparison:", num3 === num4)                 // true
 
-// 3. Logical Operators
+// # 3. Logical Operators
 console.log("\nLogical Operators:")
 const isValid: boolean = true
 const isEnabled: boolean = false
@@ -62,7 +64,7 @@ const nullableValue: string | null = null
 console.log("Is null:", nullableValue === null)                // true
 console.log("Is not null:", nullableValue !== null)            // false
 
-// 4. Object Comparisons
+// # 4. Object Comparisons
 interface Person {
     id: number;
     name: string;
@@ -88,16 +90,17 @@ if (isString(unknownValue)) {
     console.log("\nString length:", unknownValue.length)  // TypeScript knows it's a string
 }
 
-// 5. Comparison with Different Types
+// # 5. Comparison with Different Types
 console.log("\nComparison with Different Types:")
 const numberString: string = "123"
 const actualNumber: number = 123
 
-console.log("String to Number comparison:")
+/* console.log("String to Number comparison:")
 console.log(`"123" == 123:`, numberString == actualNumber)     // true (coercion)
 console.log(`"123" === 123:`, numberString === actualNumber)   // false (strict)
+*/
 
-// 6. Common Comparison Patterns
+// # 6. Common Comparison Patterns
 console.log("\nCommon Comparison Patterns:")
 
 // Checking for null or undefined

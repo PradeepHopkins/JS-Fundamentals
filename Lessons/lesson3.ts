@@ -1,4 +1,6 @@
+// =====================================================
 // # Objects and Arrays in TypeScript
+// =====================================================
 // Learn how to work with complex data structures
 
 // 1. Basic Object with Interface

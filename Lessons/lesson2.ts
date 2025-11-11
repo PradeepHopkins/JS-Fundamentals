@@ -1,4 +1,6 @@
-// # String Operations in TypeScript
+// =====================================================
+//  String Operations in TypeScript
+// =====================================================
 // Learn different ways to work with strings
 
 // 1. String Concatenation (Traditional)

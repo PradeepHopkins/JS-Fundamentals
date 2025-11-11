@@ -1,7 +1,8 @@
 // # The console.log() function is used to print output to the console
 console.log("Hello World!")
-
-// # Variables in TypeScript
+// =====================================================
+// Variables in TypeScript
+// =====================================================
 // Three ways to declare variables:
 // - let: Block-scoped, can be reassigned
 // - const: Block-scoped, cannot be reassigned
